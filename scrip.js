@@ -3,6 +3,8 @@ fetch("data/destinations.json")
 
 then(data => {
     let bodyElm = document.querySelector("body")
+    console.log(bodyElm);
+    
     let apartaments = document.createElement("section")
     apartaments.classList.add("apartaments")
     apartaments.innerHTML = `<h1 class="headline" >Apartaments for rent</h1>

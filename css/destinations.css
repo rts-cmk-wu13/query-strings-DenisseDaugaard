@@ -1,0 +1,14 @@
+.destination__card {
+    display: flex;
+}
+
+.destination__card__img__container{
+    height: 30rem;
+}
+
+.destination__card__info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
