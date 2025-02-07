@@ -3,6 +3,7 @@ let params = new URLSearchParams(window.location.search)
 let id = params.get("id")
 console.log(id);
 
+
 fetch(`/data/${id}.json`)
 .then(response => response.json()).
 
@@ -19,7 +20,7 @@ then(destinationsData => {
                                 <img src="img/${destinationsData.image}" alt="Apartament image">
                                 </figure>
                                 <div class="destination__card__favorite">
-                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-heart favorite" data-place="${destinationsData.title}"></i>
                                 <p>FAVORIT</p>
                                 </div>
                                 <section class="destination__card__info">
@@ -34,4 +35,5 @@ then(destinationsData => {
                                 </section>
                                 </div>`
     destinationsBodyElm.append(destinations)
+
 })
