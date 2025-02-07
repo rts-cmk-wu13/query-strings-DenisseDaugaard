@@ -8,16 +8,20 @@ fetch(`/data/${id}.json`)
 
 then(destinationsData => {
     console.log(destinationsData);  
-    let destinationsBodyElm = document.createElement("body")
+    let destinationsBodyElm = document.querySelector("body")
     console.log(destinationsBodyElm);
     
     let destinations = document.createElement("section")
     destinations.classList.add("destinations")
     destinations.innerHTML = `
-                                <div class="destination" id="${destinationsData.id}">
+                                <div class="destination__card" id="${destinationsData.id}">
                                 <figure class="destination__card__img__container"> 
                                 <img src="img/${destinationsData.image}" alt="Apartament image">
                                 </figure>
+                                <div class="destination__card__favorite">
+                                <i class="fa-solid fa-heart"></i>
+                                <p>FAVORIT</p>
+                                </div>
                                 <section class="destination__card__info">
                                 <h3 class="destination__name">${destinationsData.destination}</h3>
                                 <h2>${destinationsData.title}</h2>
@@ -31,21 +35,3 @@ then(destinationsData => {
                                 </div>`
     destinationsBodyElm.append(destinations)
 })
-
-/* ${apartamentsData.destinations.map(destinationElm => `
-    <div class="destination__card" id="${destinationElm.id}"> 
-        <figure class="destination__card__img__container"> 
-        <img src="img/${destinationElm.image}" alt="Apartament image">
-        </figure>
-        <section class="destination__card__info">
-        <h3 class="destination__name">${destinationElm.destination}</h3>
-        <h2>${destinationElm.title}</h2>
-        <span class="destination__subtitle">${destinationElm.subtitle}</span>
-        <p>${destinationElm.text}</p>
-        <h3>Faciliteter</h3>
-        <ul>
-        ${destinationElm.facilities.map(facility => `<li>${facility}</li>`).join("")}
-        </ul>
-        </section>
-    </div>`).join("")}
-         */

@@ -5,6 +5,7 @@
 
 html{
     font-family: "Inter",Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
 }
 
 *{
@@ -23,5 +24,8 @@ a{
     text-decoration: none;
     color: black;
     font-weight: bold;
+}
 
+a:hover{
+    color: blue;
 }
