@@ -23,38 +23,37 @@ then(data => {
 
     bodyElm.append(apartaments)
 
-    markAsFavorite ()
+    
+        let favoriteIcons = document.querySelectorAll(".favorite")
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // 
+        favoriteIcons.forEach(icon => {
+          let destinationId = icon.getAttribute("data-id")// 
+            if (favorites.includes(destinationId)) {
+                icon.classList.add("favorited")
+            }
+
+            icon.addEventListener("click", () => {
+                addRedColor(destinationId, icon)
+            })
+        })
+
+
+        function addRedColor(destinationId, icon) { // here we add some css to the icons or delete from local storage with each click
+            let index = favorites.indexOf(destinationId);
+
+            if (index === -1) { // this is what happens with every click if index is not found in the local storage !!
+                favorites.push(destinationId)
+                icon.classList.add("favorited")
+            } else {
+                favorites.splice(index, 1)
+                icon.classList.remove("favorited")
+            }
+
+            // Save the items in the local storage!
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+        }
 })
 
 
-
-/* -------------------choose a favorit ekstra opgave -------------------- */
-let addedFavorites = JSON.parse(localStorage.getItem("favorites")) || []
-//console.log(addedFavorites);
-
-
-
-
-function markAsFavorite (){
-    let favorites = document.querySelectorAll(".favorite")
-    console.log(favorites);
-
-    favorites.forEach( favorite => {
-        favorite.addEventListener("click", event => {
-            if (event.target){
-                favorite.style.color ="red"
-                let favoriteId = favorite.dataset.id
-                localStorage.setItem("favorites", JSON.stringify(favoriteId))
-
-                if(localStorage.getItem("favorites")){
-                    console.log("hello");
-                    console.log(JSON.parse(localStorage.getItem("favorites")));
-                    console.log(favorite);
-                    
-                }
-            }
-        })
-    })
-
-
-}

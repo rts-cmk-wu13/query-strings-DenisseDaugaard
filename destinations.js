@@ -1,7 +1,7 @@
 let params = new URLSearchParams(window.location.search)
 //console.log(params);
 let id = params.get("id")
-console.log(id);
+//console.log(id);
 
 
 fetch(`/data/${id}.json`)
@@ -20,7 +20,7 @@ then(destinationsData => {
                                 <img src="img/${destinationsData.image}" alt="Apartament image">
                                 </figure>
                                 <div class="destination__card__favorite">
-                                <i class="fa-solid fa-heart favorite" data-place="${destinationsData.title}"></i>
+                                <i class="fa-solid fa-heart favorite" data-id="${destinationsData.id}"></i>
                                 <p>FAVORIT</p>
                                 </div>
                                 <section class="destination__card__info">
@@ -35,5 +35,16 @@ then(destinationsData => {
                                 </section>
                                 </div>`
     destinationsBodyElm.append(destinations)
+
+    let markedIcon = document.querySelector(".favorite").dataset.id
+    console.log(markedIcon);
+    console.log(localStorage.getItem("favorites").includes(5));
+
+    if(localStorage.getItem("favorites").includes(markedIcon)){
+        let redIcon = document.querySelector(".favorite")
+        redIcon.style.color = "red"
+    }
+    
+    
 
 })

@@ -22,6 +22,12 @@ font-size: 3rem;
     height:20rem ;
 }
 
-.favorite-added{
+.favorite {
+    cursor: pointer;
+    color: gray;
+    transition: color 0.3s ease;
+}
+
+.favorite.favorited {
     color: red;
 }
