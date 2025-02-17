@@ -44,7 +44,5 @@ then(destinationsData => {
         let redIcon = document.querySelector(".favorite")
         redIcon.style.color = "red"
     }
-    
-    
 
 })
