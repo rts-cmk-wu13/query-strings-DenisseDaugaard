@@ -38,9 +38,8 @@ then(destinationsData => {
 
     let markedIcon = document.querySelector(".favorite").dataset.id
     console.log(markedIcon);
-    console.log(localStorage.getItem("favorites").includes(5));
 
-    if(localStorage.getItem("favorites").includes(markedIcon)){
+    if(localStorage.getItem("favoritePlaces").includes(markedIcon)){
         let redIcon = document.querySelector(".favorite")
         redIcon.style.color = "red"
     }
