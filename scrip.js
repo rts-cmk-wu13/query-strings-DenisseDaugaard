@@ -46,14 +46,10 @@ then(data => {
         })
     })
     
-    
-                        
+                    
     bodyElm.append(apartaments)
     })
                             
-
-
-
 
     function saveToLocalStorage (key, value){
 
