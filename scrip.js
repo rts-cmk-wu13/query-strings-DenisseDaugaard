@@ -1,6 +1,5 @@
 let favorites = readFromLocalStorage("favoritePlaces") || []
-console.log(favorites);
-
+//console.log(favorites);
 //if (!favorites) favorites = []
 
 
@@ -11,16 +10,15 @@ then(data => {
     let bodyElm = document.querySelector("body")
     //console.log(bodyElm);
 
-    let headerElm= document.createElement("header")
+    let headerElm = document.createElement("header")
     headerElm.innerHTML = `<nav>
-                            <div class="ckeck-box__container">
-                                <label for="">Go to dark mode</label>
-                                <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
-                                </label>
-                            </div>
-
+                                <div class="ckeck-box__container">
+                                    <label for="">Go to dark mode</label>
+                                    <label class="switch">
+                                    <input type="checkbox" id="switch__elm">
+                                    <span class="slider round"></span>
+                                    </label>
+                                </div>
                            </nav>`
     
     let apartaments = document.createElement("section")
@@ -46,7 +44,7 @@ then(data => {
             let newFavorites = favorites.filter(id => id != currentId)
             favorites = newFavorites
             event.target.classList.remove("favorited")
-            console.log(favorites);
+            //console.log(favorites);
            } else{
             favorites.push(currentId)
             event.target.classList.add("favorited")
@@ -58,11 +56,11 @@ then(data => {
         })
     })
                
-    bodyElm.append( headerElm, apartaments)
+    bodyElm.append(headerElm,apartaments)
+    darkMode()
     })
                             
 
-    
 
     /**
      * 
@@ -96,11 +94,11 @@ then(data => {
 
 
     let success = saveToLocalStorage()
-    console.log(success);
+    //console.log(success);
     
    let myfavorites = readFromLocalStorage("favorites")
-   console.log(myfavorites);
+   //console.log(myfavorites);
 
    let deletedSuccess =  deleteFromLocalStorage("favorites")
-   console.log(deletedSuccess);
+   //console.log(deletedSuccess);
    

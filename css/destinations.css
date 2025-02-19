@@ -2,11 +2,6 @@
     margin: 3rem;
 }
 
-.destination__card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
 
 .destination__card__info{
     padding-block: 5rem;

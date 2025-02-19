@@ -5,6 +5,7 @@
         gap: 1rem;
         padding: 1rem;
     }
+
 }
 
 @media (width > 64rem)  {
@@ -14,6 +15,12 @@
         gap: 1rem;
         padding: 1rem;
     }
+
+    .destination__card {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
 }
 
 .apartament{
